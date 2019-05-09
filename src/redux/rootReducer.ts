@@ -7,7 +7,6 @@ export type RootState = {
   router: RouterState;
 };
 
-// TODO : not use as any when combining real reducers
 export const createRootReducer = history =>
   combineReducers<RootState>({
     router: connectRouter(history),
