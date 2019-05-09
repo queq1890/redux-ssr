@@ -8,10 +8,11 @@ export type RootState = {
 };
 
 export const createRootReducer = history =>
-  combineReducers<RootState>({
+  combineReducers({
     router: connectRouter(history),
   });
 
-export const initState = (): Partial<RootState> => {
+// TODO: not use any
+export const initState = (): any => {
   return {};
 };
