@@ -1,1 +1,3 @@
 webpack.config*.js
+src/server.tsx
+src/client.tsx
