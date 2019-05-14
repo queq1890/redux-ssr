@@ -1,6 +1,15 @@
-const animalAPIResponse = {
-  1: { kind: 'dog', name: 'hachi' },
-  2: { kind: 'cat', name: 'doraemon' },
+interface AnimalType {
+  id: number;
+  kind: string;
+  name: string;
+}
+
+export interface AnimalResponseType {
+  animals: AnimalType[];
+}
+
+const animalAPIResponse: AnimalResponseType = {
+  animals: [{ id: 1, kind: 'dog', name: 'hachi' }, { id: 2, kind: 'cat', name: 'doraemon' }],
 };
 
 export type animalAPIResultType = typeof animalAPIResponse | Error;
