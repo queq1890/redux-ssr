@@ -3,7 +3,9 @@ const animalAPIResponse = {
   2: { kind: 'cat', name: 'doraemon' },
 };
 
-const animalAPI = async () => {
+export type animalAPIResultType = typeof animalAPIResponse | Error;
+
+const animalAPI = async (): Promise<animalAPIResultType> => {
   const rand = Math.random();
   await setTimeout(() => {
     //eslint-disable-next-line
