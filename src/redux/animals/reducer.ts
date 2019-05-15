@@ -4,6 +4,7 @@ import { AnimalAction } from './actions';
 
 export interface AnimalState {
   animals: Animal[];
+  error?: Error | null;
 }
 
 export const initialState: AnimalState = {
@@ -17,7 +18,7 @@ const AnimalReducer = (state: AnimalState = initialState, action: AnimalAction):
     case ActionType.GET_ANIMALS_SUCCEED:
       return { ...state, animals: action.payload.animals };
     case ActionType.GET_ANIMALS_FAIL:
-      return { ...state };
+      return { ...state, error: action.error };
 
     default:
       return state;
