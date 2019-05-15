@@ -8,10 +8,11 @@ const APIClient = new AnimalApiService();
 function* runGetAnimals() {
   try {
     const result = yield call(APIClient.getAnimalList);
-    // const result = APIClient.getAnimalList() as AnimalResponseType;
     yield put(getAnimals.succeed(result));
   } catch (error) {
-    yield put(getAnimals.fail(error));
+    //TODO: create error handling reducer and invoke a action here
+    // e.g) yield put (handleErrors(error.message))
+    yield put(getAnimals.fail(error.message));
   }
 }
 

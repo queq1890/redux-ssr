@@ -18,6 +18,7 @@ const AnimalReducer = (state: AnimalState = initialState, action: AnimalAction):
     case ActionType.GET_ANIMALS_SUCCEED:
       return { ...state, animals: action.payload.animals };
     case ActionType.GET_ANIMALS_FAIL:
+      // TODO : create error handling reducer and not use 'error' in this reducer
       return { ...state, error: action.error };
 
     default:
