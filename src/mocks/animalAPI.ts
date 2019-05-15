@@ -14,9 +14,9 @@ const animalAPIResponse: AnimalResponseType = {
 
 export type animalAPIResultType = typeof animalAPIResponse | Error;
 
-const animalAPI = async (): Promise<animalAPIResultType> => {
+const animalAPI = (): animalAPIResultType => {
   const rand = Math.random();
-  await setTimeout(() => {
+  setTimeout(() => {
     //eslint-disable-next-line
     console.log('calling API');
   }, rand * 1000);
