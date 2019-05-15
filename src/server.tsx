@@ -8,6 +8,7 @@ import createMemoryHistory from 'history/createMemoryHistory';
 import Routes from './Routes';
 import { render } from './isomorphic/render';
 import { configureStore } from './isomorphic/store';
+import rootSaga from './redux/rootSaga';
 import { initState } from './redux/rootReducer';
 
 const app = Express();
@@ -28,8 +29,17 @@ app.get('*', (req: Express.Request, res: Express.Response) => {
       </ConnectedRouter>
     </Provider>,
   );
-  res.write(render(content, store.getState()));
-  res.end();
+
+  store
+    .runSaga(rootSaga)
+    .toPromise()
+    .then(() => {
+      // saga complete
+
+      res.write(render(content, store.getState()));
+      res.end();
+    });
+  store.close();
 });
 
 app.listen(3000, () => {
