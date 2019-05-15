@@ -1,11 +1,11 @@
-interface AnimalType {
+export interface Animal {
   id: number;
   kind: string;
   name: string;
 }
 
 export interface AnimalResponseType {
-  animals: AnimalType[];
+  animals: Animal[];
 }
 
 const animalAPIResponse: AnimalResponseType = {
