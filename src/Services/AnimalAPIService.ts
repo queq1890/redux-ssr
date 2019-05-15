@@ -1,8 +1,8 @@
 import AnimalAPI from '../mocks/animalAPI';
 
 class AnimalAPIService {
-  public getAnimalList = () => {
-    const result = AnimalAPI;
+  public getAnimalList = async () => {
+    const result = await AnimalAPI();
     return result;
   };
 }
